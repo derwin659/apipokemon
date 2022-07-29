@@ -11,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,6 +21,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 @RestController
+@EnableCaching
 @RequestMapping({"/v1"})
 public class PokemonController {
     private static final Logger logger = LoggerFactory.getLogger(PokemonController.class);
@@ -43,8 +45,10 @@ public class PokemonController {
         this.detailPokemon = detailPokemon;
     }
 
+
     @RequestMapping(value = {"/pokemones"}, method = {RequestMethod.GET}, produces = {"application/json"})
     public ResponseEntity<?> pokemon(@RequestParam(defaultValue = "20") int offset,@RequestParam(defaultValue = "20") int limit) throws Exception, NoSuchElementException, NullPointerException {
+
         System.out.println(offset);
         System.out.println(limit);
         List<Results> listado= this.allPokemon.getAllPokemon(protocoloService,hostPokemon,contentPokemon,offset,limit);

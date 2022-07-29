@@ -4,6 +4,7 @@ import com.pokedex.pokedex.model.Abilities;
 import com.pokedex.pokedex.model.Ability;
 import com.pokedex.pokedex.model.Lista;
 import com.pokedex.pokedex.model.Lista1;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

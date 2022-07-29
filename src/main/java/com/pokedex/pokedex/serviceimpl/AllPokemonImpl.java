@@ -9,6 +9,7 @@ import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
@@ -29,8 +30,6 @@ public class AllPokemonImpl implements AllPokemonService {
     int connectTimeoutMillis = 30000;
     int readTimeoutMillis = 30000;
 
-    //private static final String URL_SERVICE = "http://localhost:8080/v1/pokemon/detail";
-
     public AllPokemonImpl(RestTemplateBuilder builder) {
         this.restTemplate = builder
                 .setConnectTimeout(Duration.ofMillis(connectTimeoutMillis))
@@ -40,6 +39,8 @@ public class AllPokemonImpl implements AllPokemonService {
 
     public AllPokemonImpl() {
     }
+
+
 
     @Override
     public List<Results> getAllPokemon(String protocoloService, String hostPokemon, String contentPokemon, int offset, int limit) {
@@ -59,14 +60,6 @@ public class AllPokemonImpl implements AllPokemonService {
                 List<Results> list= responseEntity.getBody().getResults();
                 logger.info("****paso 1*********");
                 System.out.println(endpointPokemon);
-
-                //JSONObject jsonObject = new JSONObject((String) responseEntity.getBody());
-                //JSONArray results = jsonObject.getJSONArray("results");
-                //Object results1 =  jsonObject.getJSONObject("results").get("url");
-                //System.out.println(results1);
-               // List<Object> list = results.toList();
-
-
                 return list;
 
             }
