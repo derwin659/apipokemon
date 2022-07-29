@@ -42,11 +42,11 @@ public class AllPokemonImpl implements AllPokemonService {
     }
 
     @Override
-    public List<Results> getAllPokemon(String protocoloService, String hostPokemon, String contentPokemon, int pageNum, int pageSize) {
+    public List<Results> getAllPokemon(String protocoloService, String hostPokemon, String contentPokemon, int offset, int limit) {
 
         logger.info("****RESP SERVICIO DETALLES DEL POKEMON**********");
 
-        String endpointPokemon = protocoloService + hostPokemon + contentPokemon;
+        String endpointPokemon = protocoloService + hostPokemon + contentPokemon+"?offset="+offset+"&limit="+limit;
         logger.info(endpointPokemon);
 
         HttpHeaders headers = new HttpHeaders();
@@ -58,6 +58,7 @@ public class AllPokemonImpl implements AllPokemonService {
             if (responseEntity.getStatusCode() == HttpStatus.OK) {
                 List<Results> list= responseEntity.getBody().getResults();
                 logger.info("****paso 1*********");
+                System.out.println(endpointPokemon);
 
                 //JSONObject jsonObject = new JSONObject((String) responseEntity.getBody());
                 //JSONArray results = jsonObject.getJSONArray("results");
@@ -66,7 +67,7 @@ public class AllPokemonImpl implements AllPokemonService {
                // List<Object> list = results.toList();
 
 
-                return getPageLimit(list, pageNum, pageSize);
+                return list;
 
             }
         } catch (HttpClientErrorException e) {

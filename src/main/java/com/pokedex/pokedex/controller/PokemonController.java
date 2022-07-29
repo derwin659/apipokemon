@@ -44,10 +44,12 @@ public class PokemonController {
     }
 
     @RequestMapping(value = {"/pokemones"}, method = {RequestMethod.GET}, produces = {"application/json"})
-    public ResponseEntity<?> pokemon(@RequestParam(required = false) int pageNum,@RequestParam(required = false) int pageSize) throws Exception, NoSuchElementException, NullPointerException {
-
-        List<Results> listado= this.allPokemon.getAllPokemon(protocoloService,hostPokemon,contentPokemon,pageNum,pageSize);
-
+    public ResponseEntity<?> pokemon(@RequestParam(defaultValue = "20") int offset,@RequestParam(defaultValue = "20") int limit) throws Exception, NoSuchElementException, NullPointerException {
+        System.out.println(offset);
+        System.out.println(limit);
+        List<Results> listado= this.allPokemon.getAllPokemon(protocoloService,hostPokemon,contentPokemon,offset,limit);
+        System.out.println("listado.size()");
+        System.out.println(listado.size());
         int cantidad= listado.size();
 
         List<Lista> lista= new ArrayList<>();
