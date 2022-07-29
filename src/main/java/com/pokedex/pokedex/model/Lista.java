@@ -11,9 +11,10 @@ import java.util.Set;
 @Setter
 @Getter
 public class Lista {
-    private String type;
     private String url;
     private int weight;
-    private List<Abilities> abilitiesSet = new ArrayList<>();
+    private List<Object> abilities = new ArrayList<>();
+    private List<Object> types = new ArrayList<>();
+    private String image;
 
 }
