@@ -27,7 +27,7 @@ public class DetailPokemonImpl implements DetailPokemonService {
     int connectTimeoutMillis = 30000;
     int readTimeoutMillis = 30000;
 
-    private static final String URL_SERVICE = "http://localhost:8080/v1/pokemon/detail";
+    private static final String URL_SERVICE = "https://apipokem.herokuapp.com/v1/pokemon/detail";
 
     public DetailPokemonImpl(RestTemplateBuilder builder) {
         this.restTemplate = builder
