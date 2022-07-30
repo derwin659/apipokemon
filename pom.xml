@@ -10,7 +10,8 @@
 	</parent>
 	<groupId>com.pokedex</groupId>
 	<artifactId>pokedex</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>Version 1</version>
+	<packaging>war</packaging>
 	<name>pokedex</name>
 	<description>App Pokedex</description>
 	<properties>
@@ -75,6 +76,14 @@
 							<artifactId>lombok</artifactId>
 						</exclude>
 					</excludes>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.18.1</version>
+				<configuration>
+					<skipTests>true</skipTests>
 				</configuration>
 			</plugin>
 		</plugins>
