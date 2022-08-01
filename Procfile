@@ -1,2 +1,2 @@
-web: java -jar -Dserver.port=$PORT target/pokedex-Version 1.jar
+web: java -jar -Dserver.port=8080 target/pokedex-Version 1.jar
 
