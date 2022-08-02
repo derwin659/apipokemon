@@ -1,1 +1,1 @@
-web: java -jar -Dspring.profiles.active=pdn build/libs/pokedex-Version 1.war
+web: java -jar -Dspring.profiles.active=pdn target/*.war
