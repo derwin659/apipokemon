@@ -111,6 +111,7 @@
 				<artifactId>heroku-maven-plugin</artifactId>
 				<version>3.0.3</version>
 				<configuration>
+					<appName>peaceful-caverns-44332</appName>
 					<processTypes>
 						<web>java $JAVA_OPTS -cp target/classes:target/dependency/* Main</web>
 					</processTypes>

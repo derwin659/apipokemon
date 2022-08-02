@@ -1,2 +1,1 @@
-web: java -jar -Dserver.port=8080 target/pokedex-Version 1.jar
-
+web: java -jar -Dspring.profiles.active=pdn build/libs/pokedex-Version 1.jar
