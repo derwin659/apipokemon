@@ -11,7 +11,7 @@
 	<groupId>com.pokedex</groupId>
 	<artifactId>pokedex</artifactId>
 	<version>Version 1</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>pokedex</name>
 	<description>App Pokedex</description>
 	<properties>
