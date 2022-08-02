@@ -6,6 +6,8 @@ import com.pokedex.pokedex.model.Lista1;
 import com.pokedex.pokedex.model.Results;
 import com.pokedex.pokedex.serviceimpl.AllPokemonImpl;
 import com.pokedex.pokedex.serviceimpl.DetailPokemonImpl;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,7 +47,8 @@ public class PokemonController {
         this.detailPokemon = detailPokemon;
     }
 
-
+    @ApiOperation("Get All Pokemones and Call to Service Detail Pokemon for Pokemon")
+    @ApiResponse(code=200,message="OK")
     @RequestMapping(value = {"/pokemones"}, method = {RequestMethod.GET}, produces = {"application/json"})
     public ResponseEntity<?> pokemon(@RequestParam(defaultValue = "20") int offset,@RequestParam(defaultValue = "20") int limit) throws Exception, NoSuchElementException, NullPointerException {
 
@@ -74,6 +77,8 @@ public class PokemonController {
     }
 
     @RequestMapping(value = {"/pokemon/detail/{id}"}, method = {RequestMethod.GET}, produces = {"application/json"})
+    @ApiOperation("Get  Detail Pokemon for Pokemon")
+    @ApiResponse(code=200,message="OK")
     public ResponseEntity<Lista1> detailPokemon(@PathVariable Integer id) throws Exception, NoSuchElementException, NullPointerException {
         logger.info("****DETAIL POKEMON**********");
         System.out.println(id);
